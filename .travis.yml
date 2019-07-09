@@ -1,0 +1,18 @@
+language: java
+sudo: false
+install: true
+addons:
+  sonarcloud:
+    organization: "tulioviglione-github"
+    token:
+      secure: "51527d4b4f0ed145c2c31980868a6345bd7bce27"
+jdk:
+  - oraclejdk8
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+before_install:
+  - chmod +x mvnw
