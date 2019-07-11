@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.6.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.usuario</groupId>
 	<artifactId>usuario-api</artifactId>
@@ -52,14 +52,14 @@
 		</dependency>
 
 		<!-- Spring Security -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
-		</dependency> -->
+		</dependency>
 
 		<!-- Hibernate validator -->
 		<!-- <dependency>
