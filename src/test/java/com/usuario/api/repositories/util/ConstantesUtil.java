@@ -2,6 +2,10 @@ package com.usuario.api.repositories.util;
 
 public class ConstantesUtil {
 
+	public final class Url{
+		public static final String CADASTRA_USUARIO = "/api/usuarios";
+	}
+	
 	public final class Usuario{
 		public static final String SENHA_VALIDA = "12345678";
 		public static final String SENHA_MENOR= "1234567";
