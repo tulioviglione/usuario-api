@@ -3,6 +3,7 @@ package com.usuario.api;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.usuario.api.enteties.Usuario;
 import com.usuario.api.enums.PerfilEnum;
 import com.usuario.api.enums.SituacaoUsuarioEnum;
 
@@ -18,16 +19,15 @@ public class UsuarioDTO {
 	private SituacaoUsuarioEnum situacao;
 
 	
-	public UsuarioDTO(Long id, String nome, String sobrenome, String login, String email, PerfilEnum perfil,
-			SituacaoUsuarioEnum situacao) {
+	public UsuarioDTO(Usuario usuario) {
 		super();
-		this.id = id;
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.login = login;
-		this.email = email;
-		this.perfil = perfil;
-		this.situacao = situacao;
+		this.id = usuario.getId();
+		this.nome = usuario.getNome();
+		this.sobrenome = usuario.getSobrenome();
+		this.login = usuario.getLogin();
+		this.email = usuario.getEmail();
+		this.perfil = usuario.getPerfil();
+		this.situacao = usuario.getSituacao();
 	}
 
 	public Long getId() {
