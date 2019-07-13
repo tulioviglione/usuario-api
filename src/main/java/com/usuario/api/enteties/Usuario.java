@@ -8,6 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
+import com.usuario.api.UsuarioDTO;
 import com.usuario.api.enteties.Generics;
 import com.usuario.api.enums.PerfilEnum;
 import com.usuario.api.enums.SituacaoUsuarioEnum;
@@ -45,6 +46,18 @@ public class Usuario extends Generics implements Serializable {
 
 	@Column(name = "SITUACAO", length = 9, nullable = false)
 	private SituacaoUsuarioEnum situacao;
+
+	public Usuario(UsuarioDTO dto) {
+		super();
+		setId(dto.getId());
+		this.nome = dto.getNome();
+		this.sobrenome = dto.getSobrenome();
+		this.login = dto.getLogin();
+		this.email = dto.getEmail();
+		this.senha = dto.getSenha();
+		this.perfil = dto.getPerfil();
+		this.situacao = dto.getSituacao();
+	}
 
 	public String getNome() {
 		return nome;
