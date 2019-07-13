@@ -47,6 +47,10 @@ public class Usuario extends Generics implements Serializable {
 	@Column(name = "SITUACAO", length = 9, nullable = false)
 	private SituacaoUsuarioEnum situacao;
 
+	public Usuario() {
+		// construtor padrão
+	}
+	
 	public Usuario(UsuarioDTO dto) {
 		super();
 		setId(dto.getId());
