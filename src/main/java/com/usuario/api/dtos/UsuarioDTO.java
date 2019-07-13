@@ -1,4 +1,4 @@
-package com.usuario.api;
+package com.usuario.api.dtos;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -18,6 +18,9 @@ public class UsuarioDTO {
 	private PerfilEnum perfil;
 	private SituacaoUsuarioEnum situacao;
 
+	public UsuarioDTO() {
+		// construtor padrão
+	}
 	
 	public UsuarioDTO(Usuario usuario) {
 		super();
