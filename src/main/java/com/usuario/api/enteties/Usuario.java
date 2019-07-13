@@ -8,8 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
-import com.usuario.api.UsuarioDTO;
-import com.usuario.api.enteties.Generics;
+import com.usuario.api.dtos.UsuarioDTO;
 import com.usuario.api.enums.PerfilEnum;
 import com.usuario.api.enums.SituacaoUsuarioEnum;
 
