@@ -36,7 +36,7 @@ public class JwtTokenUtil {
 		String username;
 		try {
 			Claims claims = getClaimsFromToken(token);
-			username = claims.getSubject();
+			username = (claims != null) ? claims.getSubject() : null;
 		} catch (Exception e) {
 			username = null;
 		}
@@ -50,14 +50,14 @@ public class JwtTokenUtil {
 	 * @return Date
 	 */
 	public Date getExpirationDateFromToken(String token) {
-		Date expiration;
+		Date data;
 		try {
 			Claims claims = getClaimsFromToken(token);
-			expiration = claims.getExpiration();
+			data = (claims != null) ? claims.getExpiration() : null;
 		} catch (Exception e) {
-			expiration = null;
+			data = null;
 		}
-		return expiration;
+		return data;
 	}
 
 	/**
@@ -67,15 +67,16 @@ public class JwtTokenUtil {
 	 * @return String
 	 */
 	public String refreshToken(String token) {
-		String refreshedToken;
 		try {
 			Claims claims = getClaimsFromToken(token);
-			claims.put(CLAIM_KEY_CREATED, new Date());
-			refreshedToken = gerarToken(claims);
+			if (claims != null) {
+				claims.put(CLAIM_KEY_CREATED, new Date());
+				return gerarToken(claims);
+			}
+			return null;
 		} catch (Exception e) {
-			refreshedToken = null;
+			return null;
 		}
-		return refreshedToken;
 	}
 
 	/**
@@ -111,13 +112,11 @@ public class JwtTokenUtil {
 	 * @return Claims
 	 */
 	private Claims getClaimsFromToken(String token) {
-		Claims claims;
 		try {
-			claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+			return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
 		} catch (Exception e) {
-			claims = null;
+			return null;
 		}
-		return claims;
 	}
 
 	/**
