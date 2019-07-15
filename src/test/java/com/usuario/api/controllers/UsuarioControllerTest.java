@@ -40,42 +40,20 @@ public class UsuarioControllerTest {
 	public void cadastraNovoUsuario() throws Exception {
 		BDDMockito.given(this.usuarioService.cadastraNovoUsuario(Mockito.any(Usuario.class))).willReturn(new Usuario());
 		
-		mvc.perform(MockMvcRequestBuilders.post(ConstantesUtil.Url.CADASTRA_USUARIO).content(obterJsonRequisicaoPost())
+		mvc.perform(MockMvcRequestBuilders.post(ConstantesUtil.Url.CADASTRA_USUARIO).content("{\"nome\": \"nome\",\"sobrenome\": \"sobrenome\",\"login\": \""+ConstantesUtil.Usuario.LOGIN+"\",\"email\": \""+ConstantesUtil.Usuario.EMAIL_VALIDO+"\",\"senha\": \""+ConstantesUtil.Usuario.SENHA_VALIDA+"\"}")
 				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 		
 		mvc.perform(MockMvcRequestBuilders.post(ConstantesUtil.Url.CADASTRA_USUARIO)
-				.content(obterJsonInvalido())
+				.content("{\"nome\": \"nome\",\"sobrenome\": \"sobrenome\",\"login\": \""+ConstantesUtil.Usuario.LOGIN+"\",\"email\": \"\",\"senha\": \""+ConstantesUtil.Usuario.SENHA_VALIDA+"\"}")
 				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isBadRequest())
 				.andExpect(jsonPath("$.errors").isNotEmpty());
 		
 		mvc.perform(MockMvcRequestBuilders.post(ConstantesUtil.Url.CADASTRA_USUARIO)
-				.content(obterJsonVazio())
+				.content("{\"nome\": \"\",\"sobrenome\": \"\",\"login\": \"\",\"email\": \"\",\"senha\": \"\"}")
 				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isBadRequest())
 				.andExpect(jsonPath("$.errors").isNotEmpty());
 	}
 	
-	private String obterJsonVazio() throws JsonProcessingException {
-		UsuarioDTO dto = new UsuarioDTO();
-		dto.setEmail("");
-		dto.setSenha(ConstantesUtil.Usuario.SENHA_MENOR);
-		dto.setLogin("");
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.writeValueAsString(dto);
-	}
-	private String obterJsonInvalido() throws JsonProcessingException {
-		UsuarioDTO dto = new UsuarioDTO();
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.writeValueAsString(dto);
-	}
-
-	private String obterJsonRequisicaoPost() throws JsonProcessingException {
-		UsuarioDTO dto = new UsuarioDTO();
-		dto.setEmail(ConstantesUtil.Usuario.EMAIL_VALIDO);
-		dto.setSenha(ConstantesUtil.Usuario.SENHA_VALIDA);
-		dto.setLogin(ConstantesUtil.Usuario.LOGIN);
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.writeValueAsString(dto);
-	}
 }
