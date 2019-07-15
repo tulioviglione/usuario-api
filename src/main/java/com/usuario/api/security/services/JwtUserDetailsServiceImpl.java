@@ -19,7 +19,7 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
 	private UsuarioService usuarioService;
 
 	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String email) {
 		Optional<Usuario> usuario = usuarioService.findByEmail(email);
 
 		if (usuario.isPresent()) {

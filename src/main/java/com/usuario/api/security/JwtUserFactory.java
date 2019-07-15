@@ -32,7 +32,7 @@ public class JwtUserFactory {
 	 * @return List<GrantedAuthority>
 	 */
 	private static List<GrantedAuthority> mapToGrantedAuthorities(PerfilEnum perfilEnum) {
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		List<GrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(new SimpleGrantedAuthority(perfilEnum.toString()));
 		return authorities;
 	}
