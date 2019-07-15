@@ -8,9 +8,6 @@ public class JwtAuthenticationDto {
 	private String email;
 	private String senha;
 
-	public JwtAuthenticationDto() {
-	}
-
 	@NotNull(message = "{email.nulo}")
 	@Size(min = 1, message = "{email.vazio}")
 	public String getEmail() {
