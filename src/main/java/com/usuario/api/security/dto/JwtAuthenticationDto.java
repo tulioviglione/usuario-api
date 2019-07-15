@@ -31,9 +31,4 @@ public class JwtAuthenticationDto {
 		this.senha = senha;
 	}
 
-	@Override
-	public String toString() {
-		return "JwtAuthenticationRequestDto [email=" + email + ", senha=" + senha + "]";
-	}
-
 }
