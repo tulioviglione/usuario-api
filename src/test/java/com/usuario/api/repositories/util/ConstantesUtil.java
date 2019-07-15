@@ -4,6 +4,7 @@ public class ConstantesUtil {
 
 	public final class Url{
 		public static final String CADASTRA_USUARIO = "/api/usuarios";
+		public static final String AUTENTICACAO = "/auth/";
 	}
 	
 	public final class Usuario{
