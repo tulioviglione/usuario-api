@@ -1,4 +1,4 @@
-package com.usuario.api.repositories.util.services;
+package com.usuario.api.services;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -23,8 +23,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.usuario.api.enteties.Usuario;
 import com.usuario.api.repositories.UsuarioRepository;
-import com.usuario.api.repositories.util.ConstantesUtil;
-import com.usuario.api.services.UsuarioService;
+import com.usuario.api.util.ConstantesUtil;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
