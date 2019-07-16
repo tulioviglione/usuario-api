@@ -1,4 +1,4 @@
-package com.usuario.api.repositories.util;
+package com.usuario.api.util;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
