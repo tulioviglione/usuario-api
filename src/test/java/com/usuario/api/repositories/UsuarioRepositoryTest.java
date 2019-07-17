@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.usuario.api.enteties.Usuario;
 import com.usuario.api.enums.PerfilEnum;
 import com.usuario.api.enums.SituacaoUsuarioEnum;
-import com.usuario.api.repositories.util.ConstantesUtil;
+import com.usuario.api.util.ConstantesUtil;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
