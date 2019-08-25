@@ -27,7 +27,7 @@ import com.usuario.api.security.dto.TokenDto;
 import com.usuario.api.security.utils.JwtTokenUtil;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthenticationController {
 
 	private static final Logger log = LoggerFactory.getLogger(AuthenticationController.class);

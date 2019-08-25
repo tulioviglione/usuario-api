@@ -49,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-				.antMatchers(HttpMethod.POST, "/api/usuarios/**", "/auth/**").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/usuarios/**", "/api/auth/**").permitAll()
 				.antMatchers(HttpMethod.GET,"/api/usuarios/validaUsuario/**", "/api/usuarios/validaEmail/**").permitAll().anyRequest()
 				.authenticated();
 		httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
