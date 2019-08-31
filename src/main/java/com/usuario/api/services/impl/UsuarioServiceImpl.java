@@ -27,13 +27,15 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public boolean isEmailExist(String email) {
 		log.debug("verificando se ja existe e-mail informado cadastrado");
-		return Optional.ofNullable(usuarioRepository.findByEmail(email)).isPresent();
+		Optional<Usuario> user = usuarioRepository.findByEmail(email);
+		return (user.isPresent())?user.get() != null:user.isPresent();
 	}
 
 	@Override
 	public boolean isLoginExist(String login) {
 		log.debug("verificando se ja existe login informado cadastrado");
-		return Optional.ofNullable(usuarioRepository.findByLogin(login)).isPresent();
+		Optional<Usuario> user = usuarioRepository.findByLogin(login);
+		return (user.isPresent())?user.get() != null:user.isPresent();
 	}
 
 	@Override
